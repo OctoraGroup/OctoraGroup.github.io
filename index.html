@@ -111,6 +111,75 @@
       gap:34px;
     }
 
+    .mobile-menu-btn{
+      display:none;
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:18px;
+      background:white;
+      border:1px solid #ececf3;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      box-shadow:0 10px 30px rgba(0,0,0,.04);
+      transition:.35s;
+    }
+
+    .mobile-menu-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .mobile-menu-btn span{
+      width:22px;
+      height:2px;
+      background:#111827;
+      border-radius:999px;
+      transition:.35s;
+    }
+
+    .mobile-nav{
+      position:fixed;
+      top:88px;
+      left:18px;
+      right:18px;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(20px);
+      border:1px solid #ececf3;
+      border-radius:28px;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      z-index:998;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-10px);
+      transition:.35s cubic-bezier(.16,1,.3,1);
+      box-shadow:0 25px 70px rgba(0,0,0,.08);
+    }
+
+    .mobile-nav.active{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .mobile-nav a{
+      padding:16px 18px;
+      border-radius:18px;
+      color:#111827;
+      font-weight:700;
+      transition:.3s;
+    }
+
+    .mobile-nav a:hover{
+      background:#f5f5ff;
+      color:#6D5DF6;
+    }
+
     nav a{
       position:relative;
       color:#4b5563;
@@ -869,6 +938,14 @@
     }
 
     @media(max-width:992px){
+      .desktop-project-btn{
+        display:none;
+      }
+
+      .mobile-menu-btn{
+        display:flex;
+      }
+
       .hero,
       .footer-top,
       .services-grid,
@@ -1366,9 +1443,26 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <a href="https://wa.me/62895384266670" class="btn-primary">Start Project</a>
+    <a href="https://wa.me/62895384266670" class="btn-primary desktop-project-btn">Start Project</a>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+  <a href="https://wa.me/62895384266670" class="btn-primary" style="margin-top:10px;justify-content:center;">
+    Start Project
+  </a>
+</div>
 
 <section class="hero container">
   <div>
@@ -1735,6 +1829,8 @@
 
 <script>
   const header = document.getElementById('header');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNav = document.getElementById('mobileNav');
   const topBtn = document.getElementById('topBtn');
 
   window.addEventListener('scroll', () => {
@@ -1797,6 +1893,17 @@
   setTimeout(() => {
     welcomePopup.classList.add('active');
   }, 400);
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+    });
+  });
 </script>
 
 </body>
