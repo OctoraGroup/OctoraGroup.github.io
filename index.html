@@ -930,6 +930,57 @@
       }
     }
 
+    @media(max-width:860px){
+      .hero{
+        grid-template-columns:1fr;
+        gap:42px;
+        padding-top:120px;
+        text-align:center;
+      }
+
+      .hero p{
+        margin-inline:auto;
+      }
+
+      .hero-buttons,
+      .stats{
+        justify-content:center;
+      }
+
+      .hero-image{
+        width:100%;
+      }
+
+      .hero-image img{
+        height:520px;
+      }
+
+      .hero-overlay-card{
+        left:24px;
+        right:24px;
+        width:auto;
+        max-width:none;
+      }
+
+      #about .container > div{
+        padding:48px 32px !important;
+      }
+
+      #about .container > div > div:last-child{
+        grid-template-columns:1fr !important;
+        gap:40px !important;
+      }
+
+      #about h2{
+        font-size:48px !important;
+      }
+
+      .footer-top{
+        grid-template-columns:1fr;
+        gap:42px;
+      }
+    }
+
     @media(max-width:768px){
       .container{
         padding-left:18px;
@@ -1021,6 +1072,157 @@
 
       .popup-box h2{
         font-size:34px;
+      }
+    }
+
+    @media(max-width:620px){
+      .hero{
+        padding-top:110px;
+        padding-bottom:40px;
+      }
+
+      .hero h2{
+        font-size:38px;
+        line-height:1.05;
+        letter-spacing:-2px;
+        margin-bottom:20px;
+      }
+
+      .hero p{
+        font-size:15px;
+        line-height:1.8;
+        margin-bottom:28px;
+      }
+
+      .hero-buttons{
+        gap:14px;
+        margin-bottom:38px;
+      }
+
+      .hero-buttons a,
+      .cta-buttons a,
+      .footer-actions a{
+        width:100%;
+        min-height:54px;
+      }
+
+      .hero-image img{
+        height:360px;
+        border-radius:24px;
+      }
+
+      .hero-overlay-card{
+        left:14px;
+        right:14px;
+        bottom:14px;
+        padding:16px;
+        border-radius:20px;
+      }
+
+      .hero-overlay-card h3{
+        font-size:24px;
+        letter-spacing:-1px;
+      }
+
+      .hero-overlay-card p.small{
+        font-size:12px;
+        margin-bottom:10px;
+      }
+
+      .hero-overlay-card p.desc{
+        font-size:13px;
+        line-height:1.6;
+      }
+
+      .stats{
+        width:100%;
+        gap:18px;
+      }
+
+      .stats div{
+        width:100%;
+        padding:18px;
+        background:white;
+        border:1px solid #ececf3;
+        border-radius:20px;
+      }
+
+      #about .container > div{
+        padding:34px 20px !important;
+        border-radius:32px !important;
+      }
+
+      #about h2{
+        font-size:34px !important;
+        line-height:1.1 !important;
+      }
+
+      #about p{
+        font-size:15px !important;
+      }
+
+      #about img{
+        height:220px !important;
+      }
+
+      #about div[style*='grid-template-columns:1fr 1fr']{
+        grid-template-columns:1fr !important;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .testimonial-grid{
+        gap:22px;
+      }
+
+      .card,
+      .testimonial{
+        padding:24px;
+        border-radius:24px;
+        min-height:auto;
+      }
+
+      .card h3{
+        font-size:22px;
+        min-height:auto !important;
+      }
+
+      .portfolio-card img{
+        height:220px;
+      }
+
+      .testimonial-user{
+        align-items:center;
+      }
+
+      .cta{
+        padding:42px 20px;
+        border-radius:28px;
+      }
+
+      .cta h2{
+        font-size:34px;
+        letter-spacing:-2px;
+      }
+
+      .footer-brand h2{
+        font-size:38px;
+      }
+
+      .footer-links{
+        grid-template-columns:1fr;
+      }
+
+      .footer-card.wide{
+        grid-column:span 1;
+      }
+
+      .social-buttons{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom{
+        gap:20px;
       }
     }
 
@@ -1599,4 +1801,3 @@
 
 </body>
 </html>
-refresh
