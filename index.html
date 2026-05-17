@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Octora Group - Preview</title>
 
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%236D5DF6'/%3E%3Cstop offset='1' stop-color='%238C80FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='34' fill='url(%23g)'/%3E%3Cpath d='M38 64c0-14 12-26 26-26s26 12 26 26-12 26-26 26S38 78 38 64Z' fill='white'/%3E%3Ccircle cx='64' cy='64' r='10' fill='%236D5DF6'/%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -44,13 +46,19 @@
 
     .reveal{
       opacity:0;
-      transform:translateY(40px);
-      transition:all .9s cubic-bezier(.16,1,.3,1);
+      transform:translateY(70px) scale(.97);
+      filter:blur(8px);
+      transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1),
+        filter 1s cubic-bezier(.16,1,.3,1);
+      will-change:transform,opacity;
     }
 
     .reveal.active{
       opacity:1;
-      transform:translateY(0);
+      transform:translateY(0) scale(1);
+      filter:blur(0px);
     }
 
     body::before{
@@ -330,7 +338,7 @@
 
     .hero-image{
       position:relative;
-      animation:floatSlow 7s ease-in-out infinite;
+      animation:floatSlow 9s ease-in-out infinite;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -455,8 +463,8 @@
 
     .card:hover,
     .testimonial:hover{
-      transform:translateY(-10px);
-      box-shadow:0 30px 70px rgba(109,93,246,.12);
+      transform:translateY(-12px) scale(1.015);
+      box-shadow:0 35px 80px rgba(109,93,246,.14);
     }
 
     .service-icon{
@@ -845,6 +853,21 @@
       }
     }
 
+    @media(max-width:1200px){
+      .container{
+        padding-left:40px;
+        padding-right:40px;
+      }
+
+      .hero{
+        gap:50px;
+      }
+
+      .hero h2{
+        font-size:68px;
+      }
+    }
+
     @media(max-width:992px){
       .hero,
       .footer-top,
@@ -858,25 +881,240 @@
         display:none;
       }
 
-      .hero h2,
-      .section-title h2,
-      .cta h2,
-      .footer-brand h2{
-        font-size:46px;
-      }
-
-      .hero-image img{
-        max-width:100%;
-        height:500px;
-      }
-
       .container{
         padding-left:24px;
         padding-right:24px;
       }
 
+      .hero{
+        min-height:auto;
+        padding-top:140px;
+        gap:48px;
+      }
+
+      .hero h2,
+      .section-title h2,
+      .cta h2,
+      .footer-brand h2{
+        font-size:52px;
+        line-height:1.05;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .hero-image img{
+        width:100%;
+        height:520px;
+      }
+
+      .hero-overlay-card{
+        width:calc(100% - 48px);
+      }
+
+      .footer-top{
+        gap:50px;
+      }
+
       .social-buttons{
         grid-template-columns:1fr 1fr;
+      }
+
+      .cta{
+        padding:64px 34px;
+      }
+
+      .popup-box{
+        padding:42px 30px;
+      }
+    }
+
+    @media(max-width:768px){
+      .container{
+        padding-left:18px;
+        padding-right:18px;
+      }
+
+      .navbar{
+        padding:18px 0;
+      }
+
+      .logo h1{
+        font-size:24px;
+      }
+
+      .logo-circle{
+        width:42px;
+        height:42px;
+      }
+
+      .hero{
+        padding-top:120px;
+        padding-bottom:60px;
+      }
+
+      .hero h2,
+      .section-title h2,
+      .footer-brand h2,
+      .cta h2{
+        font-size:42px;
+        letter-spacing:-2px;
+      }
+
+      .hero-buttons,
+      .cta-buttons,
+      .footer-actions{
+        flex-direction:column;
+        width:100%;
+      }
+
+      .hero-buttons a,
+      .cta-buttons a,
+      .footer-actions a{
+        width:100%;
+        justify-content:center;
+      }
+
+      .stats{
+        gap:24px;
+      }
+
+      .hero-image img{
+        height:420px;
+        border-radius:28px;
+      }
+
+      .hero-overlay-card{
+        left:18px;
+        right:18px;
+        bottom:18px;
+        width:auto;
+        padding:18px;
+        border-radius:22px;
+      }
+
+      .hero-overlay-card h3{
+        font-size:28px;
+      }
+
+      section{
+        padding:90px 0;
+      }
+
+      .card,
+      .testimonial,
+      .footer-card{
+        padding:28px;
+        border-radius:26px;
+      }
+
+      .cta{
+        border-radius:30px;
+        padding:52px 24px;
+      }
+
+      .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .popup-box h2{
+        font-size:34px;
+      }
+    }
+
+    @media(max-width:576px){
+      .hero h2,
+      .section-title h2,
+      .footer-brand h2,
+      .cta h2{
+        font-size:34px;
+      }
+
+      .badge{
+        font-size:12px;
+        padding:10px 16px;
+      }
+
+      .hero p,
+      .footer-brand p,
+      .card p,
+      .testimonial p{
+        font-size:15px;
+        line-height:1.8;
+      }
+
+      .stats{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .stats h3{
+        font-size:24px;
+      }
+
+      .hero-image img{
+        height:340px;
+      }
+
+      .service-icon{
+        width:64px;
+        height:64px;
+        font-size:30px;
+      }
+
+      .card h3{
+        font-size:24px;
+      }
+
+      .footer-card.wide{
+        grid-column:span 1;
+      }
+
+      .social-buttons{
+        grid-template-columns:1fr;
+      }
+
+      #topBtn{
+        width:50px;
+        height:50px;
+        right:18px;
+        bottom:18px;
+      }
+    }
+
+    @media(max-width:390px){
+      .container{
+        padding-left:14px;
+        padding-right:14px;
+      }
+
+      .hero h2,
+      .section-title h2,
+      .footer-brand h2,
+      .cta h2{
+        font-size:30px;
+        line-height:1.08;
+      }
+
+      .hero-image img{
+        height:300px;
+      }
+
+      .popup-box{
+        padding:34px 22px;
+        border-radius:28px;
+      }
+
+      .popup-box h2{
+        font-size:28px;
+      }
+
+      .btn-primary,
+      .btn-secondary{
+        padding:13px 18px;
+        font-size:14px;
       }
     }
   </style>
@@ -1298,6 +1536,11 @@
   const topBtn = document.getElementById('topBtn');
 
   window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    document.querySelectorAll('.hero-image img').forEach((img) => {
+      img.style.transform = `translateY(${scrollY * 0.03}px)`;
+    });
     if(window.scrollY > 20){
       header.classList.add('scrolled');
     } else {
@@ -1321,17 +1564,21 @@
   const reveals = document.querySelectorAll('.reveal');
 
   const revealOnScroll = () => {
-    reveals.forEach((el) => {
+    reveals.forEach((el, index) => {
       const revealTop = el.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
-      if(revealTop < windowHeight - 100){
-        el.classList.add('active');
+      if(revealTop < windowHeight - 80){
+        setTimeout(() => {
+          el.classList.add('active');
+        }, index * 80);
       }
     });
   };
 
-  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('scroll', revealOnScroll, {
+    passive:true
+  });
   revealOnScroll();
 
   const welcomePopup = document.getElementById('welcomePopup');
